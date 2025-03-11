@@ -118,7 +118,7 @@ Feel free to fork this repo and submit a **pull request** if you have any improv
 
 ## 🔗 Contact
 🌐 GitHub: [github.com/khurammurad](https://github.com/khurammurad)  
-🚀 LinkedIn: [linkedin.com/in/your-profile](https://linkedin.com/in/your-profile)
+🚀 LinkedIn: [linkedin.com/in/KhuramMurad](https://linkedin.com/in/KhuramMurad)
 
 ---
 
