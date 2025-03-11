@@ -1,4 +1,3 @@
-```markdown
 # Node.js 2-Tier Application with MongoDB on Kubernetes
 
 ## Overview
