@@ -2,7 +2,7 @@
 
 ## Overview
 This is a **2-tier application** built with **Node.js (backend), MongoDB (database), and Kubernetes** for deployment.  
-It is containerized using Docker and deployed on a **local Minikube cluster**.  
+It is containerized using Docker and can be deployed using **Docker Compose** or **Kubernetes**.  
 The next step is to deploy it on **AWS EKS (Elastic Kubernetes Service).**
 
 ---
@@ -19,7 +19,36 @@ The next step is to deploy it on **AWS EKS (Elastic Kubernetes Service).**
 
 ## 🚀 Deployment Steps
 
-### **1. Local Deployment (Minikube)**
+### **1. Deployment using Docker Compose (Local)**
+#### Prerequisites:
+- Docker
+- Docker Compose
+
+#### Steps:
+1. **Clone the repository**  
+   ```bash
+   git clone https://github.com/khurammurad/nodejs-2tier-app.git
+   cd nodejs-2tier-app
+   ```
+2. **Start the application**  
+   ```bash
+   docker-compose up -d
+   ```
+3. **Verify Running Containers**  
+   ```bash
+   docker ps
+   ```
+4. **Access the Application**  
+   - Open `http://localhost` in your browser.
+
+5. **Stop the application**  
+   ```bash
+   docker-compose down
+   ```
+
+---
+
+### **2. Local Deployment using Kubernetes (Minikube)**
 #### Prerequisites:
 - Docker
 - Minikube
@@ -48,7 +77,7 @@ The next step is to deploy it on **AWS EKS (Elastic Kubernetes Service).**
 
 ---
 
-### **2. Deployment on AWS EKS (Upcoming)**
+### **3. Deployment on AWS EKS (Upcoming)**
 #### Planned Steps:
 ✅ Create an AWS EKS Cluster  
 ✅ Deploy the application using Kubernetes manifests  
@@ -88,9 +117,8 @@ Feel free to fork this repo and submit a **pull request** if you have any improv
 ---
 
 ## 🔗 Contact
-📧 Email: [khuram.saggu@gmail.com]  
 🌐 GitHub: [github.com/khurammurad](https://github.com/khurammurad)  
-🚀 LinkedIn: [linkedin.com/in/KhuramMurad](https://linkedin.com/in/KhuramMurad)
+🚀 LinkedIn: [linkedin.com/in/your-profile](https://linkedin.com/in/your-profile)
 
 ---
 
