@@ -1,123 +1,100 @@
-# Node.js 2-Tier Application with MongoDB and Kubernetes
+```markdown
+# Node.js 2-Tier Application with MongoDB on Kubernetes
 
 ## Overview
-This project is a **2-tier web application** built with **Node.js** and **MongoDB**, containerized using **Docker**, and deployed on **Kubernetes (Minikube)**. The application consists of:
-- **Frontend**: Serves the user interface (React, HTML, or a simple Node.js app).
-- **Backend**: Handles API requests and interacts with MongoDB.
-- **Database**: MongoDB for storing application data.
-
-## Features
-- **REST API** built with Express.js.
-- **MongoDB** database integration.
-- **Dockerized** application using Docker Compose.
-- **Kubernetes Deployment** for production-like orchestration.
-- **Minikube** setup for local Kubernetes testing.
-
-## Technologies Used
-- **Node.js** (Backend API)
-- **Express.js** (Web Framework)
-- **MongoDB** (Database)
-- **Docker & Docker Compose** (Containerization)
-- **Kubernetes & Minikube** (Orchestration)
+This is a **2-tier application** built with **Node.js (backend), MongoDB (database), and Kubernetes** for deployment.  
+It is containerized using Docker and deployed on a **local Minikube cluster**.  
+The next step is to deploy it on **AWS EKS (Elastic Kubernetes Service).**
 
 ---
 
-## Architecture
-```plaintext
-┌──────────────┐    ┌──────────────┐    ┌───────────┐
-│  Frontend    │──▶ │  Backend     │──▶ │  MongoDB  │
-│ (React/HTML) │    │ (Node.js API)│    │ Database  │
-└──────────────┘    └──────────────┘    └───────────┘
-```
+## 🏗️ Architecture
+
+- **Frontend:** JavaScript (or client requests via API)
+- **Backend:** Node.js + Express.js
+- **Database:** MongoDB
+- **Containerization:** Docker
+- **Orchestration:** Kubernetes (Minikube → AWS EKS)
 
 ---
 
-## Getting Started
-### 1️⃣ Clone the Repository
-```bash
-git clone https://github.com/khurammurad/nodejs-2tier-app.git
-cd nodejs-2tier-app
-```
+## 🚀 Deployment Steps
 
-### 2️⃣ Run Locally using Docker Compose
-Ensure Docker is installed and running:
-```bash
-docker-compose up -d
-```
-Access the application at:
-- **Backend API**: `http://localhost:5000`
-- **MongoDB**: `mongodb://mongo:27017/testdb`
+### **1. Local Deployment (Minikube)**
+#### Prerequisites:
+- Docker
+- Minikube
+- kubectl
 
-To stop the application:
-```bash
-docker-compose down
-```
+#### Steps:
+1. **Start Minikube**  
+   ```bash
+   minikube start
+   ```
+2. **Apply Kubernetes manifests**  
+   ```bash
+   kubectl apply -f k8s/
+   ```
+3. **Verify Running Pods & Services**  
+   ```bash
+   kubectl get pods
+   kubectl get services
+   ```
+4. **Access the Application**  
+   - Get the NodePort using:  
+     ```bash
+     minikube service list
+     ```
+   - Open the service URL in your browser.
 
 ---
 
-## Kubernetes Deployment
-### 1️⃣ Start Minikube
-```bash
-minikube start
-```
+### **2. Deployment on AWS EKS (Upcoming)**
+#### Planned Steps:
+✅ Create an AWS EKS Cluster  
+✅ Deploy the application using Kubernetes manifests  
+✅ Configure Ingress and Load Balancer  
+✅ Implement CI/CD with GitHub Actions  
 
-### 2️⃣ Deploy Application to Kubernetes
-```bash
-kubectl apply -f k8s/
-```
-Check if pods are running:
-```bash
-kubectl get pods
-```
+---
 
-### 3️⃣ Access Application on Minikube
-Find the NodePort:
-```bash
-kubectl get services
+## 📁 Project Structure
+
 ```
-Example output:
-```plaintext
-backend   NodePort    10.96.1.12    <none>        5000:31895/TCP
-```
-Now, access the application using Minikube's IP:
-```bash
-minikube ip
-```
-Example:
-```
-http://192.168.49.2:31895
+nodejs-2tier-app/
+│── k8s/                  # Kubernetes manifests
+│   ├── mongo-statefulset.yaml
+│   ├── backend-deployment.yaml
+│   ├── frontend-deployment.yaml
+│   ├── service.yaml
+│── src/                  # Node.js application
+│── Dockerfile            # Dockerfile for backend
+│── docker-compose.yaml   # Local Docker Compose setup
+│── README.md             # Project documentation
 ```
 
 ---
 
-## Project Files
-### **Docker Setup**
-- `Dockerfile.backend`: Builds the backend container.
-- `Dockerfile.frontend`: Builds the frontend container.
-- `docker-compose.yml`: Defines multi-container setup.
-
-### **Kubernetes Manifests**
-- `k8s/backend-deployment.yaml`: Deploys backend on Kubernetes.
-- `k8s/mongo-deployment.yaml`: Deploys MongoDB on Kubernetes.
-- `k8s/backend-service.yaml`: Exposes backend service.
+## 📌 Next Steps
+- [ ] Push this project to **GitHub**
+- [ ] Deploy to **AWS EKS**
+- [ ] Implement **CI/CD with GitHub Actions**
+- [ ] Improve logging & monitoring with **Prometheus & Grafana**
 
 ---
 
-## Future Enhancements
-- Add **frontend UI** integration.
-- Implement **CI/CD pipeline** with GitHub Actions.
-- Migrate to **AWS EKS** or **Azure AKS** for cloud deployment.
+## 🤝 Contributing
+Feel free to fork this repo and submit a **pull request** if you have any improvements!
 
 ---
 
-## Author
-Developed by **Khuram Murad**.
-
-Feel free to contribute or report issues!
+## 🔗 Contact
+📧 Email: [khuram.saggu@gmail.com]  
+🌐 GitHub: [github.com/khurammurad](https://github.com/khurammurad)  
+🚀 LinkedIn: [linkedin.com/in/KhuramMurad](https://linkedin.com/in/KhuramMurad)
 
 ---
 
-## License
-This project is open-source and available under the **MIT License**.
-
-
+## 📜 License
+This project is open-source under the **MIT License**.
+```
