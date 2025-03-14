@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: khurammurad/nodejs-2tier-app-backend:v1
+          image: khurammurad/nodejs-backend:v1
           ports:
             - containerPort: 5000
           env:
