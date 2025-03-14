@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: khurammurad/nodejs-2tier-app-frontend:v1  # UPDATED IMAGE
+          image: khurammurad/nodejs-frontend:v1  # UPDATED IMAGE
           ports:
             - containerPort: 80
 
